@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.barry.securityservice;
 
 import java.io.FileOutputStream;

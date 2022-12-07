@@ -4,8 +4,6 @@
 package com.barry.securityservice.config;
 
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -68,6 +66,7 @@ public class SecurityConfig  {
 		
 	}
 	
+	@Bean
 	JwtEncoder encoder() {
 		
 		JWK  jwk = new RSAKey.Builder(rsaKeysConfig.publicKey()).privateKey(rsaKeysConfig.privateKey()).build();
@@ -75,6 +74,7 @@ public class SecurityConfig  {
 		return new NimbusJwtEncoder(jwkSource);
 	}
 	
+	@Bean
 	JwtDecoder decoder() {
 		return NimbusJwtDecoder.withPublicKey(rsaKeysConfig.publicKey()).build();
 	}
